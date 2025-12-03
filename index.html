@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki Suprema do Deep Learning</title>
+    <!-- Carrega o Tailwind CSS CDN para estilização rápida e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos personalizados para a fonte e embeds */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+            color: #1f2937;
+        }
+        /* Estilização para tornar o iframe do YouTube responsivo */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Accordion styles */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-content.active {
+            max-height: 2000px;
+            transition: max-height 0.5s ease-in;
+        }
+        .accordion-header {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .accordion-header:hover {
+            background-color: #f3f4f6;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-icon.rotated {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- 🌟 CABEÇALHO (Header) -->
+    <header class="bg-gray-800 text-white shadow-lg p-6 sticky top-0 z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold tracking-tight">
+                Wiki Suprema do Deep Learning
+            </h1>
+            <nav class="hidden md:block">
+                <a href="#introducao" class="text-gray-300 hover:text-white mx-3 transition duration-150">Conceitos</a>
+                <a href="#videos" class="text-gray-300 hover:text-white mx-3 transition duration-150">Vídeos & Base</a>
+                <a href="#experimentos" class="text-gray-300 hover:text-white mx-3 transition duration-150">Experimentos</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 🔑 CONTEÚDO PRINCIPAL (Main) -->
+    <main class="container mx-auto px-4 py-12 md:px-8">
+
+        <!-- SEÇÃO 1: INTRODUÇÃO E CONCEITOS COM ACCORDION -->
+        <section id="introducao" class="mb-16 bg-white p-8 rounded-xl shadow-2xl">
+            <h2 class="text-4xl font-bold mb-6 text-indigo-700">Introdução ao Deep Learning</h2>
+            
+            <p class="mb-8 text-lg text-gray-700 leading-relaxed border-l-4 border-indigo-400 pl-4 bg-indigo-50 p-4 rounded-md">
+                Bem-vindos à zona de desmistificação da Inteligência Artificial! Se você já se perguntou como o Google traduz um texto ou como o Spotify sabe a sua próxima música favorita, a resposta está aqui. Vamos desvendar o <strong>Machine Learning</strong> e o que torna o <strong>Deep Learning</strong> a estrela do momento, tudo de forma simples e direta.
+            </p>
+
+            <!-- ACCORDION CONTAINER -->
+            <div class="space-y-4">
+                
+                <!-- CONCEITO 1: MACHINE LEARNING (ML) -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-md">
+                    <div class="accordion-header bg-gray-50 p-6 flex justify-between items-center" onclick="toggleAccordion('accordion1')">
+                        <h3 class="text-2xl font-semibold text-gray-800">1. Machine Learning (Aprendizado de Máquina)</h3>
+                        <svg class="accordion-icon w-6 h-6 text-gray-600" id="icon1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div id="accordion1" class="accordion-content">
+                        <div class="p-6 grid md:grid-cols-2 gap-6">
+                            <div class="text-gray-600">
+                                <p class="mb-4">
+                                    Pense no Machine Learning como o campo da IA que dá aos computadores a capacidade de aprender sem serem explicitamente programados. É como ensinar uma criança: em vez de dar regras exatas ("se for verde, é maçã; se for vermelho, é morango"), você mostra centenas de exemplos, e o modelo cria suas próprias regras. O ML é o guarda-chuva de tudo.
+                                </p>
+                            </div>
+                            <div class="video-container">
+                                <iframe 
+                                    src="https://www.youtube.com/embed/Y2vACv7jEDM" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen
+                                    loading="lazy"
+                                    title="iFood: Uma Empresa BR AI First (Aplicação Real)">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONCEITO 2: REDES NEURAIS -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-md">
+                    <div class="accordion-header bg-gray-50 p-6 flex justify-between items-center" onclick="toggleAccordion('accordion2')">
+                        <h3 class="text-2xl font-semibold text-gray-800">2. Redes Neurais Artificiais (RNAs)</h3>
+                        <svg class="accordion-icon w-6 h-6 text-gray-600" id="icon2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div id="accordion2" class="accordion-content">
+                        <div class="p-6 grid md:grid-cols-2 gap-6">
+                            <div class="text-gray-600">
+                                <p class="mb-4">
+                                    Uma Rede Neural é a estrutura central desse aprendizado. Ela é inspirada no cérebro humano, formada por camadas de "neurônios" interconectados. Cada neurônio processa um pouco da informação e passa o resultado adiante. Quanto mais neurônios e camadas, mais complexo o problema que ela pode resolver.
+                                </p>
+                            </div>
+                            <div class="video-container">
+                                <iframe 
+                                    src="https://www.youtube.com/embed/aircAruvnKk" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen
+                                    loading="lazy"
+                                    title="Visualizando uma Rede Neural: O que é e Como Funciona">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONCEITO 3: DEEP LEARNING (DL) -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-md">
+                    <div class="accordion-header bg-gray-50 p-6 flex justify-between items-center" onclick="toggleAccordion('accordion3')">
+                        <h3 class="text-2xl font-semibold text-gray-800">3. Deep Learning (Aprendizado Profundo)</h3>
+                        <svg class="accordion-icon w-6 h-6 text-gray-600" id="icon3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div id="accordion3" class="accordion-content">
+                        <div class="p-6 grid md:grid-cols-2 gap-6">
+                            <div class="text-gray-600">
+                                <p class="mb-4">
+                                    O Deep Learning é simplesmente Machine Learning com <strong>Redes Neurais Profundas</strong> — ou seja, redes que possuem <strong>muitas camadas</strong> (daí o "Deep", ou Profundo). Essa profundidade permite que elas aprendam características complexas diretamente dos dados brutos, sem a nossa ajuda. É o que impulsiona carros autônomos, reconhecimento de voz e tradução automática.
+                                </p>
+                            </div>
+                            <div class="video-container">
+                                <iframe 
+                                    src="https://www.youtube.com/embed/6M5VXKLf4D4" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen
+                                    loading="lazy"
+                                    title="O que é Deep Learning de Maneira Descomplicada">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONCEITO 4: DL vs ML (Diferenças) -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-md">
+                    <div class="accordion-header bg-yellow-50 p-6 flex justify-between items-center border-l-4 border-yellow-500" onclick="toggleAccordion('accordion4')">
+                        <h3 class="text-2xl font-semibold text-gray-800">4. Deep Learning vs. Machine Learning: Qual a Diferença Chave?</h3>
+                        <svg class="accordion-icon w-6 h-6 text-gray-600" id="icon4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div id="accordion4" class="accordion-content">
+                        <div class="p-6 grid md:grid-cols-2 gap-6">
+                            <div class="text-gray-600">
+                                <p class="mb-4">
+                                    A principal diferença está na <strong>extração de características (Feature Engineering)</strong>.
+                                </p>
+                                <ul class="list-disc list-inside mt-4 space-y-2 text-gray-700">
+                                    <li><strong>Machine Learning Tradicional:</strong> Exige que um humano defina e extraia as características importantes dos dados. Ex: Para classificar imagens, o humano diria ao computador "preste atenção na forma do nariz e na distância entre os olhos".</li>
+                                    <li><strong>Deep Learning:</strong> A rede neural profunda aprende a extrair essas características <strong>por conta própria</strong>! Ela decide o que é relevante, economizando tempo e superando a capacidade humana em tarefas complexas.</li>
+                                </ul>
+                            </div>
+                            <div class="video-container">
+                                <iframe 
+                                    src="https://www.youtube.com/embed/q6kJ71tEYqM" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen
+                                    loading="lazy"
+                                    title="A Diferença Simples entre Machine Learning e Deep Learning">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2: VÍDEOS DE EMBASAMENTO (Portal de Estudos) -->
+        <section id="videos" class="mb-16">
+            <h2 class="text-4xl font-bold mb-8 text-indigo-700 border-b-2 border-indigo-300 pb-3">Portal de Estudos: Aprofundando o Conhecimento</h2>
+
+            <p class="mb-8 text-lg text-gray-700">
+                Para quem quer ir além da apresentação, separamos alguns dos melhores vídeos do YouTube que detalham os conceitos de Deep Learning, desde a aplicação no mercado até os fundamentos matemáticos.
+            </p>
+
+            <!-- Container Grid para os vídeos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Vídeo 5: Visão da Ciência -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/ggmDI9_fm54" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen
+                            loading="lazy"
+                            title="Deep Learning sob a Ótica da Ciência e Pesquisa">
+                        </iframe>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-semibold text-lg mb-2 text-indigo-600">Deep Learning sob a Ótica da Ciência e Pesquisa</h4>
+                        <p class="text-sm text-gray-600">Uma perspectiva mais acadêmica, mostrando o impacto e o rigor científico da área.</p>
+                    </div>
+                </div>
+
+                <!-- Vídeo 6: Aprofundamento Matemático -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/UOvPeC8WOt8" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen
+                            loading="lazy"
+                            title="O Aprofundamento Matemático por Trás das Redes Neurais">
+                        </iframe>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-semibold text-lg mb-2 text-indigo-600">O Aprofundamento Matemático por Trás das Redes Neurais</h4>
+                        <p class="text-sm text-gray-600">Para quem busca a base mais sólida: explore a matemática essencial do Deep Learning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: EXPERIMENTOS COM DEEP LEARNING -->
+        <section id="experimentos" class="mb-16 bg-gradient-to-br from-purple-50 to-indigo-50 p-8 rounded-xl shadow-2xl">
+            <h2 class="text-4xl font-bold mb-6 text-indigo-700">🧪 Experimentos com Deep Learning</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                <h3 class="text-2xl font-semibold mb-4 text-purple-700">O que é TensorFlow?</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    <strong>TensorFlow</strong> é uma biblioteca open-source desenvolvida pelo Google para machine learning e deep learning. Ela permite criar e treinar modelos de redes neurais de forma eficiente, oferecendo ferramentas poderosas para processamento de dados complexos. TensorFlow é amplamente usado em pesquisa acadêmica e em aplicações comerciais, desde reconhecimento de imagens até processamento de linguagem natural.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Com TensorFlow, você pode construir modelos que aprendem padrões em dados, fazer previsões e até criar sistemas de inteligência artificial que podem "ver", "ouvir" e "entender" o mundo ao nosso redor. É uma das ferramentas mais populares para quem quer trabalhar com Deep Learning de forma prática!
+                </p>
+            </div>
+
+            <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-lg shadow-md border-l-4 border-yellow-500 mb-6">
+                <h3 class="text-2xl font-semibold mb-4 text-orange-700">🎵 Você é o Rei do POP!?</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Descubra se você tem o que é preciso para ser o próximo grande astro da música pop! Este experimento divertido usa Deep Learning para comparar sua imagem (capturada pela webcam) com pessoas famosas, especialmente o próprio <strong>Michael Jackson</strong> - o Rei do Pop!
+                </p>
+                <p class="text-gray-700 mb-6 leading-relaxed">
+                    Neste experimento interativo, você vai usar o <strong>Teachable Machine</strong> - uma ferramenta incrível do Google que permite criar modelos de machine learning sem precisar escrever código. O modelo foi treinado para reconhecer padrões visuais comparando você com celebridades famosas. Aponte sua webcam e descubra se você tem o "DNA" do Rei do Pop!
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="EXPERIMENTO.zip" download class="inline-flex items-center justify-center bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-105 shadow-md">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        Baixar Arquivo ZIP
+                    </a>
+                    <a href="https://teachablemachine.withgoogle.com/train" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-purple-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-purple-700 transition duration-300 transform hover:scale-105 shadow-md">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                        Ir ao Experimento
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                <p class="text-sm text-blue-800">
+                    <strong>💡 Dica:</strong> O Teachable Machine permite criar modelos de machine learning de forma visual e intuitiva. Você pode treinar modelos para reconhecer imagens, sons ou poses corporais - tudo através de uma interface amigável no navegador!
+                </p>
+            </div>
+        </section>
+        
+        <!-- SEÇÃO 4: CHAMADA FINAL -->
+        <section class="mt-16 text-center p-8 bg-indigo-700 text-white rounded-xl shadow-2xl">
+            <h2 class="text-3xl font-bold mb-4">Pronto para o Próximo Nível?</h2>
+            <p class="text-xl mb-6">Deep Learning é a chave para a inovação. Esperamos que esta Wiki Suprema ajude a inspirar a todos!</p>
+            <a href="#introducao" class="inline-block bg-white text-indigo-700 font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition duration-300 transform hover:scale-105 shadow-md">Voltar ao Topo</a>
+        </section>
+
+    </main>
+
+    <!-- 👣 RODAPÉ (Footer) -->
+    <footer class="bg-gray-800 text-gray-400 p-6 mt-12">
+        <div class="container mx-auto text-center text-sm">
+            <p>&copy; 2025 Wiki Suprema do Deep Learning | Desenvolvimento com HTML, Tailwind CSS e JavaScript</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript para o Accordion -->
+    <script>
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById('icon' + id.replace('accordion', ''));
+            
+            // Fecha todos os outros accordions
+            const allContents = document.querySelectorAll('.accordion-content');
+            const allIcons = document.querySelectorAll('.accordion-icon');
+            
+            allContents.forEach(item => {
+                if (item.id !== id && item.classList.contains('active')) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            allIcons.forEach(item => {
+                if (item.id !== 'icon' + id.replace('accordion', '') && item.classList.contains('rotated')) {
+                    item.classList.remove('rotated');
+                }
+            });
+            
+            // Toggle do accordion atual
+            content.classList.toggle('active');
+            icon.classList.toggle('rotated');
+        }
+    </script>
+
+</body>
+</html>
